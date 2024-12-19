@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Weather Forecast</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .input-container {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .loading {
+      display: none;
+      font-size: 18px;
+      color: #555;
+      margin-top: 10px;
+    }
+    .result {
+      display: none;
+      font-size: 20px;
+      color: #444;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AI Weather Forecast</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <h2>Enter Your Location</h2>
+      <div class="input-container">
+        <input type="text" id="location" placeholder="Enter City (e.g., Cebu)">
+        <button onclick="fetchWeather()">Get Weather</button>
+      </div>
+      <div id="loading" class="loading">Loading...</div>
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function fetchWeather() {
+      // Get the location entered by the user
+      const location = document.getElementById('location').value.trim();
+
+      // Check if the location is empty
+      if (!location) {
+        alert("Please enter a location!");
+        return;
+      }
+
+      // Show loading text
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+
+      // Simulate a delay (fake loading)
+      setTimeout(function() {
+        // Hide loading text and show the prank result
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        
+        // Display the prank message
+        document.getElementById('result').textContent = "Weather report for " + location + ": Just look outside!";
+      }, 2000); // Delay of 2 seconds to simulate loading
+    }
+  </script>
+
+</body>
+</html>
